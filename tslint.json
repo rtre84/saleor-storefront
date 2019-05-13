@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "tslint:latest",
-    "tslint-config-prettier",
-    "tslint-plugin-cypress"
-  ],
+  "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     "interface-name": false,
     "member-access": [true, "no-public"],
