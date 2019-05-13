@@ -41,10 +41,12 @@
     "url-join": "^4.0.0"
   },
   "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "^2.1.0",
     "@storybook/addon-options": "^3.4.10",
     "@storybook/cli": "^4.1.11",
     "@storybook/react": "^4.0.0-alpha.16",
     "@types/classnames": "^2.2.6",
+    "@types/faker": "^4.1.5",
     "@types/graphql": "^14.0.7",
     "@types/history": "^4.7.2",
     "@types/lodash": "^4.14.119",
@@ -71,6 +73,7 @@
     "cypress-testing-library": "^3.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "faker": "^4.1.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.6.0",
