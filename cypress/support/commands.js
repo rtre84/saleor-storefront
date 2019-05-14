@@ -1,14 +1,33 @@
-import { userBuilder } from "./generate";
+import "./login";
 
-export function createUser() {
-  const user = userBuilder();
-  return cy
-    .request({
-      body: user,
-      method: "POST",
-      url: "http://localhost:3000/graphql"
-    })
-    .then(response => response.body.user);
-}
+Cypress.Commands.add("visitStubbed", (url, operations = {}) => {
+  function responseStub(result) {
+    return {
+      json() {
+        return Promise.resolve(result);
+      },
+      text() {
+        return Promise.resolve(JSON.stringify(result));
+      },
+      ok: true
+    };
+  }
 
-Cypress.Commands.add("createUser", createUser);
+  function serverStub(path, req) {
+    const { operationName } = JSON.parse(req.body);
+
+    if (Object.keys(operations).indexOf(operationName) !== false) {
+      return Promise.resolve(responseStub(operations[operationName]));
+    }
+
+    return Promise.reject(new Error(`Not found: ${path}`));
+  }
+
+  cy.visit(url, {
+    onBeforeLoad: win => {
+      cy.stub(win, "fetch")
+        .callsFake(serverStub)
+        .as("fetch stub");
+    }
+  });
+});
