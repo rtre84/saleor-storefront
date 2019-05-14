@@ -1,14 +1,6 @@
 import { userBuilder } from "./generate";
 
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      createUser: typeof createUser;
-    }
-  }
-}
-
-function createUser() {
+export function createUser() {
   const user = userBuilder();
   return cy
     .request({
