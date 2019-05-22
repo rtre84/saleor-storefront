@@ -1,27 +1,15 @@
-version: 2
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.7.0
 jobs:
   build:
-    docker:
-      # the Docker image with Cypress dependencies
-      - image: cypress/base:8
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    parallelism: 1
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Running E2E tests
-          command: npm run test:e2e:run
-      - store_test_results:
-          path: multiple-results
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
+    - cypress/install
+    - cypress/run
+      start: npm start
+      wait-on: 'http://localhost:3000'
+        post-steps:
+          - store_test_results:
+            path: cypress/results
   deploy:
     working_directory: ~/app
     docker:
