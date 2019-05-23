@@ -5,11 +5,6 @@ jobs:
   build:
     - cypress/install
     - cypress/run
-      start: npm start
-      wait-on: 'http://localhost:3000'
-        post-steps:
-          - store_test_results:
-            path: cypress/results
   deploy:
     working_directory: ~/app
     docker:
