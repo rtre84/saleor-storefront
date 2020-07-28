@@ -57,7 +57,7 @@ exports[`Storyshots @components/atoms/DropdownMenu clickable 1`] = `
 }
 
 .c3:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c3:hover svg path {
@@ -95,6 +95,7 @@ exports[`Storyshots @components/atoms/DropdownMenu clickable 1`] = `
     >
       <div
         className="c3"
+        data-test="editButton"
         onClick={[Function]}
       >
         <svg
@@ -173,7 +174,7 @@ exports[`Storyshots @components/atoms/DropdownMenu hoverable 1`] = `
 }
 
 .c3:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c3:hover svg path {
@@ -211,6 +212,7 @@ exports[`Storyshots @components/atoms/DropdownMenu hoverable 1`] = `
     >
       <div
         className="c3"
+        data-test="editButton"
         onClick={[Function]}
       >
         <svg

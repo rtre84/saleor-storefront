@@ -46,6 +46,7 @@ exports[`Storyshots @components/atoms/ButtonLink Base 1`] = `
   <button
     className="c1"
     color="base"
+    data-test="test"
     size="md"
   >
     Text
@@ -76,7 +77,7 @@ exports[`Storyshots @components/atoms/ButtonLink Secondary 1`] = `
 .c1 {
   font-size: 1rem;
   font-weight: 600;
-  color: #21125e;
+  color: rgb(33,18,94);
   background: transparent;
   outline: none;
   border: none;
@@ -102,6 +103,7 @@ exports[`Storyshots @components/atoms/ButtonLink Secondary 1`] = `
   <button
     className="c1"
     color="secondary"
+    data-test="test"
     size="md"
   >
     Text
@@ -158,6 +160,7 @@ exports[`Storyshots @components/atoms/ButtonLink Size sm 1`] = `
   <button
     className="c1"
     color="base"
+    data-test="test"
     size="sm"
   >
     Text

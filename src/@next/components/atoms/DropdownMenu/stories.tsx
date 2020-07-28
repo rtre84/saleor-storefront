@@ -14,7 +14,14 @@ const Container = styled.div`
   justify-content: flex-end;
 `;
 const onClick = action("onClick");
-const header = <IconButton size={19} name="edit" onClick={onClick} />;
+const header = (
+  <IconButton
+    testingContext="editButton"
+    size={19}
+    name="edit"
+    onClick={onClick}
+  />
+);
 const items = [
   { onClick, content: <span>MY ACCOUNT</span> },
   { onClick, content: <span>ORDER HISTORY</span> },
@@ -22,6 +29,7 @@ const items = [
 ];
 
 storiesOf("@components/atoms/DropdownMenu", module)
+  .addParameters({ component: DropdownMenu })
   .add("hoverable", () => (
     <Container>
       <DropdownMenu type="hoverable" header={header} items={items} />

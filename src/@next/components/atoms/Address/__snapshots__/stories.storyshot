@@ -40,16 +40,15 @@ exports[`Storyshots @components/atoms/Address default 1`] = `
     Second
      
     <br />
-    55-555
-    , 
+    55-555,
+     
     Wroclaw
     <br />
     dolnyslask
     , 
     Poland
     <br />
-    Phone number
-    : 
+    Phone number: 
     555-5555
      
     <br />

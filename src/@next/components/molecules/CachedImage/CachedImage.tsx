@@ -1,18 +1,19 @@
 import React from "react";
 
+import { PlaceholderImage } from "@components/atoms";
 import { useNetworkStatus } from "@hooks";
 import NoPhoto from "images/no-photo.svg";
 
-import { IProps } from "./types";
+import { IImage } from "@types";
 
-export const CachedImage: React.FC<IProps> = ({
+export const CachedImage: React.FC<IImage> = ({
   url,
   url2x,
   alt,
   children,
   defaultImage = NoPhoto,
   ...props
-}: IProps) => {
+}: IImage) => {
   const [isUnavailable, setUnavailable] = React.useState(false);
   const { online } = useNetworkStatus();
 
@@ -41,7 +42,7 @@ export const CachedImage: React.FC<IProps> = ({
   }
 
   if (!url || isUnavailable) {
-    return children || <img src={defaultImage} alt="placeholder" />;
+    return children || <PlaceholderImage alt={alt} />;
   }
 
   return (

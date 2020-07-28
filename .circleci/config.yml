@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: circleci/node:10.7.0
+      - image: circleci/node:12.16.3-browsers
     steps:
       - checkout
       - run:
@@ -11,26 +11,23 @@ jobs:
           command: sudo apt-get install -y libpng-dev
       - run:
           name: Install dependencies
-          command: npm install
-      - run:
-          name: Run typescript checker
-          command: npx tsc --noEmit & npx tsc --noEmit -p src/@sdk & npx tsc --noEmit -p src/@next
-      - run:
-          name: Run tslint
-          command: npm run tslint
+          command: npm ci
       - run:
           name: Build application
           command: npm run build
       - run:
           name: Run tests
           command: npm run test
+      - run:
+          name: lhci autorun
+          command: npx lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
       - persist_to_workspace:
           root: ~/app
           paths:
             - dist/*
   cypress/run:
     docker:
-      - image: cypress/base:8
+      - image: cypress/base:12.16.2
         environment:
           TERM: xterm
     parallelism: 1
@@ -63,6 +60,7 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+
   deploy:
     working_directory: ~/app
     docker:

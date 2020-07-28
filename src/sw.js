@@ -4,7 +4,7 @@ workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 workbox.core.setCacheNameDetails({
-  prefix: "saleor-store-front"
+  prefix: "saleor-store-front",
 });
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest || []);
@@ -15,10 +15,8 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerNavigationRoute(
-  workbox.precaching.getCacheKeyForURL("/index.html"), {
-    blacklist: [
-      new RegExp("/graphql/"),
-      new RegExp("/dashboard/"),
-    ]
+  workbox.precaching.getCacheKeyForURL("/index.html"),
+  {
+    blacklist: [new RegExp("/graphql"), new RegExp("/dashboard")],
   }
 );

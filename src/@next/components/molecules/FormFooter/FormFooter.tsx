@@ -1,18 +1,22 @@
-import { Trans } from "@lingui/react";
 import React from "react";
 
 import { Button, ButtonLink } from "@components/atoms";
 import * as S from "./styles";
 import { IButtonProps, IProps } from "./types";
 
-const LoadingText = () => <Trans id="Loading" />;
+const LoadingText = () => <>Loading</>;
 
 const getBtnAction = (btn: IButtonProps) =>
   btn.action && { onClick: btn.action };
 
 const renderCancelBtn = (cancelBtn?: IButtonProps) =>
   cancelBtn && (
-    <ButtonLink {...getBtnAction(cancelBtn)} type="button" color="secondary">
+    <ButtonLink
+      {...getBtnAction(cancelBtn)}
+      testingContext="cancelButton"
+      type="button"
+      color="secondary"
+    >
       {cancelBtn.text}
     </ButtonLink>
   );
@@ -24,6 +28,7 @@ const renderSubmitBtn = (
 ) =>
   submitBtn && (
     <Button
+      testingContext={submitBtn.testingContext}
       {...getBtnAction(submitBtn)}
       type={formId ? "submit" : "button"}
       form={formId}

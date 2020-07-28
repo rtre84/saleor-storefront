@@ -1,8 +1,10 @@
 import * as React from "react";
+import { FormattedMessage } from "react-intl";
 
 import classNames from "classnames";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import { Button, ButtonProps } from "..";
+import { ButtonProps } from "..";
+import { Button } from "../../@next/components/atoms";
 
 interface AddToCartButtonState {
   animate: boolean;
@@ -14,8 +16,14 @@ class AddToCartButton extends React.PureComponent<
   AddToCartButtonState
 > {
   state = { animate: false, disabled: false };
+
   animationTimeout = 800;
-  timeout;
+
+  timeout: number = null;
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+  }
 
   handleAnimation = (evt: React.MouseEvent<HTMLButtonElement>) => {
     if (!this.state.disabled) {
@@ -34,20 +42,19 @@ class AddToCartButton extends React.PureComponent<
     }
   };
 
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
-  }
-
   render() {
     const { animate } = this.state;
 
     return (
       <Button
-        {...this.props}
+        testingContext={this.props.testingContext}
+        fullWidth
         className={classNames(this.props.className, {
           "product-description__action--fade": animate,
         })}
         onClick={this.handleAnimation}
+        color="primary"
+        disabled={this.props.disabled}
       >
         <ReactCSSTransitionGroup
           transitionName="product-description__action--fade"
@@ -55,7 +62,9 @@ class AddToCartButton extends React.PureComponent<
           transitionLeaveTimeout={this.animationTimeout}
         >
           {animate ? (
-            <span key="text">Added</span>
+            <span key="text">
+              <FormattedMessage defaultMessage="Added" />
+            </span>
           ) : (
             <span key="children">{this.props.children}</span>
           )}

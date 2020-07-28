@@ -59,7 +59,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
 .c2 {
   font-size: 1rem;
   font-weight: 600;
-  color: #21125e;
+  color: rgb(33,18,94);
   background: transparent;
   outline: none;
   border: none;
@@ -94,7 +94,6 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
   .c3 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -107,6 +106,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
     <button
       className="c2"
       color="secondary"
+      data-test="cancelButton"
       onClick={[Function]}
       size="md"
       type="button"
@@ -116,6 +116,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
     <button
       className="c3"
       color="primary"
+      data-test="footerTestButton"
       disabled={false}
       onClick={[Function]}
       size="sm"
@@ -206,7 +207,6 @@ exports[`Storyshots @components/molecules/FormFooter with submit button 1`] = `
   .c2 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -219,6 +219,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit button 1`] = `
     <button
       className="c2"
       color="primary"
+      data-test="footerTestButton"
       disabled={false}
       onClick={[Function]}
       size="sm"
@@ -310,7 +311,6 @@ exports[`Storyshots @components/molecules/FormFooter with top divider 1`] = `
   .c2 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -323,6 +323,7 @@ exports[`Storyshots @components/molecules/FormFooter with top divider 1`] = `
     <button
       className="c2"
       color="primary"
+      data-test="footerTestButton"
       disabled={false}
       onClick={[Function]}
       size="sm"

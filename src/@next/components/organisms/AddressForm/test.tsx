@@ -1,41 +1,31 @@
 import { mount, shallow } from "enzyme";
 import "jest-styled-components";
 import React from "react";
+import { IntlProvider } from "react-intl";
 
-import { Input } from "@components/atoms";
+import { Input, Select } from "@components/atoms";
 
 import { AddressForm } from ".";
+import { address, countries } from "./fixtures";
 
 const PROPS = {
-  errors: {},
+  countriesOptions: countries,
+  errors: [],
   handleSubmit: jest.fn(),
 };
 
 const errorMessage = "This is an error";
 const ERRORS = {
-  errors: {
-    firstName: [
-      {
-        field: "firstName",
-        message: errorMessage,
-      },
-    ],
-  },
+  errors: [
+    {
+      field: "firstName",
+      message: errorMessage,
+    },
+  ],
 };
 
 const INITIAL_DATA = {
-  address: {
-    city: "New York",
-    companyName: "Mirumee",
-    country: "US",
-    countryArea: "NY",
-    firstName: "John",
-    lastName: "Doe",
-    phone: "555-55555",
-    postalCode: "90210",
-    streetAddress1: "Street line 1",
-    streetAddress2: "Street line 2",
-  },
+  address,
 };
 
 describe("<AddressForm />", () => {
@@ -45,18 +35,23 @@ describe("<AddressForm />", () => {
   });
 
   it("should contain error provided as prop", () => {
-    const wrapper = mount(<AddressForm {...PROPS} {...ERRORS} />);
+    const wrapper = mount(
+      <IntlProvider locale="en">
+        <AddressForm {...PROPS} {...ERRORS} />
+      </IntlProvider>
+    );
 
     expect(wrapper.text()).toContain(errorMessage);
   });
 
   it("should contain partial data if provided", () => {
-    const wrapper = mount(<AddressForm {...PROPS} {...INITIAL_DATA} />);
-    const getValue = (n: number) =>
-      wrapper
-        .find(Input)
-        .at(n)
-        .prop("value");
+    const wrapper = mount(
+      <IntlProvider locale="en">
+        <AddressForm {...PROPS} {...INITIAL_DATA} />
+      </IntlProvider>
+    );
+
+    const getValue = (n: number) => wrapper.find(Input).at(n).prop("value");
     expect(getValue(0)).toEqual(INITIAL_DATA.address.firstName);
     expect(getValue(1)).toEqual(INITIAL_DATA.address.lastName);
     expect(getValue(2)).toEqual(INITIAL_DATA.address.companyName);
@@ -65,7 +60,9 @@ describe("<AddressForm />", () => {
     expect(getValue(5)).toEqual(INITIAL_DATA.address.streetAddress2);
     expect(getValue(6)).toEqual(INITIAL_DATA.address.city);
     expect(getValue(7)).toEqual(INITIAL_DATA.address.postalCode);
-    expect(getValue(8)).toEqual(INITIAL_DATA.address.country);
-    expect(getValue(9)).toEqual(INITIAL_DATA.address.countryArea);
+    expect(wrapper.find(Select).at(0).prop("value")).toEqual(
+      INITIAL_DATA.address.country
+    );
+    expect(getValue(8)).toEqual(INITIAL_DATA.address.countryArea);
   });
 });

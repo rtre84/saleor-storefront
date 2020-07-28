@@ -2,6 +2,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import { styled } from "@styles";
 import React from "react";
+import { IntlProvider } from "react-intl";
 
 import { AddressTile } from ".";
 
@@ -17,7 +18,10 @@ const DEFAULT_PROPS = {
   address: {
     city: "Wroclaw",
     companyName: "Mirumee",
-    country: "Poland",
+    country: {
+      code: "PL",
+      country: "Poland",
+    },
     countryArea: "dolnyslask",
     firstName: "John",
     isDefaultBillingAddress: false,
@@ -34,18 +38,23 @@ const DEFAULT_PROPS = {
 };
 
 storiesOf("@components/molecules/AddressTile", module)
+  .addParameters({ component: AddressTile })
   .add("default", () => (
-    <Container>
-      <AddressTile {...DEFAULT_PROPS} />
-    </Container>
+    <IntlProvider locale="en">
+      <Container>
+        <AddressTile {...DEFAULT_PROPS} />
+      </Container>
+    </IntlProvider>
   ))
   .add("with default shipping and billing as false", () => {
     const CHANGED_DEFAULT_ADDRESSES = { ...DEFAULT_PROPS };
     CHANGED_DEFAULT_ADDRESSES.address.isDefaultBillingAddress = false;
     CHANGED_DEFAULT_ADDRESSES.address.isDefaultShippingAddress = false;
     return (
-      <Container>
-        <AddressTile {...CHANGED_DEFAULT_ADDRESSES} />
-      </Container>
+      <IntlProvider locale="en">
+        <Container>
+          <AddressTile {...CHANGED_DEFAULT_ADDRESSES} />
+        </Container>
+      </IntlProvider>
     );
   });

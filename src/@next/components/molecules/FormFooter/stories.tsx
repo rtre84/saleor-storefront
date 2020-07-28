@@ -6,17 +6,20 @@ import { FormFooter } from ".";
 
 const cancelBtn = {
   action: action("on cancel"),
+  testingContext: "footerTestButton",
   text: "Cancel",
 };
 
 const DEFAULT_PROPS = {
   submitBtn: {
     action: action("on submit"),
+    testingContext: "footerTestButton",
     text: "Save",
   },
 };
 
 storiesOf("@components/molecules/FormFooter", module)
+  .addParameters({ component: FormFooter })
   .add("with submit button", () => <FormFooter {...DEFAULT_PROPS} />)
   .add("with submit and cancel button", () => {
     const PROPS = {

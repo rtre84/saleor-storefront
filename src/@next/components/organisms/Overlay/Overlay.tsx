@@ -13,7 +13,10 @@ export const Overlay: React.FC<IProps> = ({
   hide,
   position = "center",
   show,
+  transparent = false,
   target = modalRoot,
+  testingContext,
+  testingContextId,
 }: IProps) => {
   const animationProps = {
     open: show,
@@ -24,7 +27,14 @@ export const Overlay: React.FC<IProps> = ({
     ReactDOM.createPortal(
       <Transition in={show} timeout={duration} unmountOnExit>
         {state => (
-          <S.Overlay {...animationProps} state={state} onClick={hide}>
+          <S.Overlay
+            {...animationProps}
+            state={state}
+            onClick={hide}
+            transparent={transparent}
+            data-test={testingContext}
+            data-test-id={testingContextId}
+          >
             <S.Lightbox
               {...animationProps}
               state={state}

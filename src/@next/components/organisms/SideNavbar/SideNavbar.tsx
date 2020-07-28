@@ -3,10 +3,10 @@ import Media from "react-responsive";
 import { Transition } from "react-transition-group";
 
 import { Icon } from "@components/atoms";
-import { mediumScreen } from "@styles/constants";
+import { largeScreen } from "@styles/constants";
 import LogoSmall from "images/logo-small.svg";
 
-import { Overlay } from "../";
+import { Overlay } from "..";
 import * as S from "./styles";
 import { IProps, IState } from "./types";
 
@@ -72,7 +72,13 @@ export const SideNavbar: React.FC<IProps> = ({
   const handleHide = () => onHide(false);
 
   return (
-    <Overlay position="left" show={show} hide={handleHide} target={target}>
+    <Overlay
+      position="left"
+      show={show}
+      hide={handleHide}
+      target={target}
+      testingContext="navigationMenu"
+    >
       <S.Wrapper>
         <S.Menu>
           <TopBar onHide={handleHide}>
@@ -92,7 +98,7 @@ export const SideNavbar: React.FC<IProps> = ({
               <S.NavLink fullWidth type="side" item={item} />
             )
           )}
-          <Media maxWidth={mediumScreen}>
+          <Media maxWidth={largeScreen}>
             <S.Item>
               <S.Link to="/wishlist">
                 <S.IconWrapper>

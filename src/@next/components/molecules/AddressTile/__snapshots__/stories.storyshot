@@ -98,7 +98,7 @@ exports[`Storyshots @components/molecules/AddressTile default 1`] = `
 }
 
 .c8:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c8:hover svg path {
@@ -169,6 +169,7 @@ exports[`Storyshots @components/molecules/AddressTile default 1`] = `
               >
                 <div
                   className="c8"
+                  data-test="expandButton"
                 >
                   <svg
                     height={24}
@@ -203,16 +204,15 @@ exports[`Storyshots @components/molecules/AddressTile default 1`] = `
             Second
              
             <br />
-            55-555
-            , 
+            55-555,
+             
             Wroclaw
             <br />
             dolnyslask
             , 
             Poland
             <br />
-            Phone number
-            : 
+            Phone number: 
             555-5555
              
             <br />
@@ -227,6 +227,7 @@ exports[`Storyshots @components/molecules/AddressTile default 1`] = `
             <div>
               <div
                 className="c8"
+                data-test="editButton"
                 onClick={[Function]}
               >
                 <svg
@@ -244,6 +245,7 @@ exports[`Storyshots @components/molecules/AddressTile default 1`] = `
             <div>
               <div
                 className="c8"
+                data-test="removeButton"
                 onClick={[Function]}
               >
                 <svg
@@ -367,7 +369,7 @@ exports[`Storyshots @components/molecules/AddressTile with default shipping and 
 }
 
 .c8:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c8:hover svg path {
@@ -438,6 +440,7 @@ exports[`Storyshots @components/molecules/AddressTile with default shipping and 
               >
                 <div
                   className="c8"
+                  data-test="expandButton"
                 >
                   <svg
                     height={24}
@@ -471,16 +474,15 @@ exports[`Storyshots @components/molecules/AddressTile with default shipping and 
             Second
              
             <br />
-            55-555
-            , 
+            55-555,
+             
             Wroclaw
             <br />
             dolnyslask
             , 
             Poland
             <br />
-            Phone number
-            : 
+            Phone number: 
             555-5555
              
             <br />
@@ -495,6 +497,7 @@ exports[`Storyshots @components/molecules/AddressTile with default shipping and 
             <div>
               <div
                 className="c8"
+                data-test="editButton"
                 onClick={[Function]}
               >
                 <svg
@@ -512,6 +515,7 @@ exports[`Storyshots @components/molecules/AddressTile with default shipping and 
             <div>
               <div
                 className="c8"
+                data-test="removeButton"
                 onClick={[Function]}
               >
                 <svg

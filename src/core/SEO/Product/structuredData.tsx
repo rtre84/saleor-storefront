@@ -5,15 +5,15 @@ const getVariantsStructuredData = variants => {
     "@type": "Offer",
     availability: variant.isAvailable ? inStock : outOfStock,
     itemCondition: "https://schema.org/NewCondition",
-    price: variant.price.amount.toFixed(2),
-    priceCurrency: variant.price.currency,
+    price: variant.pricing.price.gross.amount.toFixed(2),
+    priceCurrency: variant.pricing.price.gross.currency,
     sku: variant.sku,
   }));
 };
 
 export const structuredData = product => {
   const images = product.images.map(image => new URL(image.url).pathname);
-  const variants = product.variants;
+  const { variants } = product;
 
   return JSON.stringify({
     "@context": "https://schema.org/",

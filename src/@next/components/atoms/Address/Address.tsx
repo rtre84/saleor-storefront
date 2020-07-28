@@ -1,10 +1,10 @@
-import { Trans } from "@lingui/react";
 import React from "react";
 
-import * as S from "./styles";
-import { IProps } from "./types";
+import { IAddress } from "@types";
 
-export const Address: React.FC<IProps> = ({
+import * as S from "./styles";
+
+export const Address: React.FC<IAddress> = ({
   firstName,
   lastName,
   companyName,
@@ -15,7 +15,7 @@ export const Address: React.FC<IProps> = ({
   countryArea,
   country,
   phone,
-}: IProps) => (
+}: IAddress) => (
   <div>
     <S.Name>{`${firstName} ${lastName}`}</S.Name>
     {companyName && (
@@ -30,14 +30,14 @@ export const Address: React.FC<IProps> = ({
         {streetAddress2} <br />
       </>
     )}
-    {postalCode}, {city}
+    {postalCode && `${postalCode},`} {city}
     <br />
     {countryArea && <>{countryArea}, </>}
-    {country}
+    {country!.country}
     <br />
     {phone && (
       <>
-        <Trans id="Phone number" />: {phone} <br />
+        Phone number: {phone} <br />
       </>
     )}
   </div>

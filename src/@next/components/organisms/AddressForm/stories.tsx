@@ -1,48 +1,52 @@
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { ReactNode } from "react";
+import { IntlProvider } from "react-intl";
+import styled from "styled-components";
 
 import { AddressForm } from ".";
+import { address, countries } from "./fixtures";
 
-const NO_ERRORS = {};
+const Container = styled.div`
+  width: 600px;
+`;
+
+const withContainer = (children: ReactNode) => (
+  <IntlProvider locale="en">
+    <Container>{children}</Container>
+  </IntlProvider>
+);
+
+const NO_ERRORS: any = [];
 const PROPS = {
+  countriesOptions: countries,
   errors: NO_ERRORS,
   handleSubmit: action("handleSubmit"),
 };
 
 const ERRORS = {
-  errors: {
-    firstName: [
-      {
-        field: "firstName",
-        message: "This is error",
-      },
-    ],
-    lastName: [
-      {
-        field: "lastName",
-        message: "This is error",
-      },
-    ],
-  },
+  errors: [
+    {
+      field: "firstName",
+      message: "This is error",
+    },
+    {
+      field: "lastName",
+      message: "This is error",
+    },
+  ],
 };
 
 const INITIAL_DATA = {
-  address: {
-    city: "New York",
-    companyName: "Mirumee",
-    country: "US",
-    countryArea: "NY",
-    firstName: "John",
-    lastName: "Doe",
-    phone: "555-55555",
-    postalCode: "90210",
-    streetAddress1: "Street line 1",
-    streetAddress2: "Street line 2",
-  },
+  address,
 };
 
 storiesOf("@components/organisms/AddressForm", module)
-  .add("default", () => <AddressForm {...PROPS} />)
-  .add("with errors", () => <AddressForm {...PROPS} {...ERRORS} />)
-  .add("with partial data", () => <AddressForm {...PROPS} {...INITIAL_DATA} />);
+  .addParameters({ component: AddressForm })
+  .add("default", () => withContainer(<AddressForm {...PROPS} />))
+  .add("with errors", () =>
+    withContainer(<AddressForm {...PROPS} {...ERRORS} />)
+  )
+  .add("with partial data", () =>
+    withContainer(<AddressForm {...PROPS} {...INITIAL_DATA} />)
+  );

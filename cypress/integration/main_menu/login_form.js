@@ -1,8 +1,9 @@
-/// <reference types="cypress" />
-import { userBuilder } from "../../support/generate";
+import faker from "faker";
+
+import { HEADER_SELECTORS } from "../../elements/main-header/header-selectors";
+import { LOGIN_SELECTORS } from "../../elements/saleor-account/login-selectors";
 
 describe("User login, logout and registration", () => {
-  let user = null;
   let polyfill = null;
 
   before(() => {
@@ -14,60 +15,75 @@ describe("User login, logout and registration", () => {
 
   beforeEach(() => {
     cy.server();
-    cy.route(
-      "POST",
-      `${Cypress.env("BACKEND_URL")}/${Cypress.env("GRAPHQL_ID")}/`
-    ).as("graphqlQuery");
+    cy.route("POST", `${Cypress.env("API_URI")}`).as("graphqlQuery");
 
-    cy.setup(polyfill);
-    cy.wait("@graphqlQuery");
+    cy.visit("/", {
+      onBeforeLoad(win) {
+        delete win.fetch;
+        // since the application code does not ship with a polyfill
+        // load a polyfilled "fetch" from the test
+        win.eval(polyfill);
+        win.fetch = win.unfetch;
+      },
+    });
   });
 
   it("should open overlay with a sign in and register form", () => {
-    cy.getByTestId("login-btn")
+    cy.get(HEADER_SELECTORS.mainMenuButton)
       .click()
       .get(".overlay")
       .should("exist");
   });
 
-  // describe("Registration", () => {
-  //   it("should register a new user", () => {
-  //     user = userBuilder();
-  //     cy.registerUser(user)
-  //       .get(".message__title")
-  //       .should("contain", "New user has been created");
-  //   });
-  //   it("should display an error if user exists", () => {
-  //     cy.registerUser(user)
-  //       .get(".login__content .input")
-  //       .first()
-  //       .get(".input__error")
-  //       .should("contain", "User with this Email already exists.");
-  //   });
-  // });
+  describe("Register new account", () => {
+    it("should register a new user", () => {
+      const randomWord = faker.random.words(2).replace(" ", "-");
+      const fakeEmailAdressText = `${randomWord}@example.com`;
+      const fakePasswordText = faker.internet.password();
+
+      cy.get(HEADER_SELECTORS.mainMenuButton)
+        .click()
+        .get(LOGIN_SELECTORS.registerNewAccount)
+        .click()
+        .get(LOGIN_SELECTORS.emailAddressInput)
+        .type(fakeEmailAdressText)
+        .get(LOGIN_SELECTORS.emailPasswordInput)
+        .type(fakePasswordText)
+        .get(LOGIN_SELECTORS.registerButton)
+        .click()
+        .get(LOGIN_SELECTORS.registrationConfirmationWarning)
+        .should("contain", "New user has been created");
+    });
+  });
 
   describe("Login", () => {
-    // it("should successfully log in an user", () => {
-    //   cy.loginUser(user)
-    //     .get(".message__title")
-    //     .should("contain", "You are now logged in");
-    // });
+    it("should successfully log in an user", () => {
+      cy.loginUser()
+        .get(LOGIN_SELECTORS.alertPopupMessage)
+        .should("contain", "You are now logged in");
+    });
+
     it("should display an error if user does not exist", () => {
-      const notRegisteredUser = userBuilder();
-      cy.loginUser(notRegisteredUser)
-        .get(".login__content .form-error")
+      cy.get(HEADER_SELECTORS.mainMenuButton)
+        .click()
+        .get(LOGIN_SELECTORS.emailAddressInput)
+        .type("thisUserIsNotRegistered@example.com")
+        .get(LOGIN_SELECTORS.emailPasswordInput)
+        .type("thisisnotavalidpassword")
+        .get(LOGIN_SELECTORS.signInButton)
+        .click()
+        .get(LOGIN_SELECTORS.warningCredentialMessage)
         .should("contain", "Please, enter valid credentials");
     });
   });
 
-  // describe("Logout", () => {
-  //   it("should successfully log out an user", () => {
-  //     const user = userBuilder();
-  //     cy.registerUser(user).loginUser(user);
-  //     cy.wait(500);
-  //     cy.logoutUser()
-  //       .get(".message__title")
-  //       .should("contain", "You are now logged out");
-  //   });
-  // });
+  describe("Logout", () => {
+    it("should successfully log out an user", () => {
+      cy.loginUser()
+        .wait(2000)
+        .logoutUser()
+        .get(LOGIN_SELECTORS.alertPopupMessage)
+        .should("contain", "You are now logged out");
+    });
+  });
 });

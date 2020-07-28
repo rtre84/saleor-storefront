@@ -20,7 +20,9 @@ const DEFAULT_PROPS = {
   hide: action("hide"),
   show: true,
   submitBtnText: "Save",
+  submitButtonTestingContext: "submitTestModalButton",
   target: portalRoot,
+  testingContext: "test",
   title: "Modal title",
 };
 
@@ -30,6 +32,7 @@ const renderModal = (props: IProps) => (
   </Modal>
 );
 storiesOf("@components/organisms/Modal", module)
+  .addParameters({ component: Modal })
   .add("Modal Form", () =>
     renderModal({
       ...DEFAULT_PROPS,

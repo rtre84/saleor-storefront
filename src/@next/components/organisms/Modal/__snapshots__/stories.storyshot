@@ -59,7 +59,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
 .c9 {
   font-size: 1rem;
   font-weight: 600;
-  color: #21125e;
+  color: rgb(33,18,94);
   background: transparent;
   outline: none;
   border: none;
@@ -114,7 +114,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
 }
 
 .c6:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c6:hover svg path {
@@ -222,7 +222,6 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
   .c10 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -231,6 +230,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
 >
   <div
     className="c1"
+    data-test="test"
     onClick={[Function]}
     open={true}
   >
@@ -253,6 +253,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
           </h4>
           <div
             className="c6"
+            data-test="closeOverlayButton"
             onClick={[Function]}
           >
             <svg
@@ -280,6 +281,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
           <button
             className="c9"
             color="secondary"
+            data-test="cancelButton"
             onClick={[Function]}
             size="md"
             type="button"
@@ -289,6 +291,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form 1`] = `
           <button
             className="c10"
             color="primary"
+            data-test="submitTestModalButton"
             disabled={false}
             form="form-id"
             size="sm"
@@ -402,7 +405,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form disabled 1`] = `
 }
 
 .c6:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c6:hover svg path {
@@ -510,7 +513,6 @@ exports[`Storyshots @components/organisms/Modal Modal Form disabled 1`] = `
   .c9 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -519,6 +521,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form disabled 1`] = `
 >
   <div
     className="c1"
+    data-test="test"
     onClick={[Function]}
     open={true}
   >
@@ -541,6 +544,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form disabled 1`] = `
           </h4>
           <div
             className="c6"
+            data-test="closeOverlayButton"
             onClick={[Function]}
           >
             <svg
@@ -568,6 +572,7 @@ exports[`Storyshots @components/organisms/Modal Modal Form disabled 1`] = `
           <button
             className="c9"
             color="primary"
+            data-test="submitTestModalButton"
             disabled={true}
             form="modal-submit"
             size="sm"
@@ -681,7 +686,7 @@ exports[`Storyshots @components/organisms/Modal Modal Info 1`] = `
 }
 
 .c6:hover {
-  background-color: #21125e;
+  background-color: rgb(33,18,94);
 }
 
 .c6:hover svg path {
@@ -789,7 +794,6 @@ exports[`Storyshots @components/organisms/Modal Modal Info 1`] = `
   .c9 {
     padding: 0.9rem 1rem;
     width: 88%;
-    max-width: 88%;
   }
 }
 
@@ -798,6 +802,7 @@ exports[`Storyshots @components/organisms/Modal Modal Info 1`] = `
 >
   <div
     className="c1"
+    data-test="test"
     onClick={[Function]}
     open={true}
   >
@@ -820,6 +825,7 @@ exports[`Storyshots @components/organisms/Modal Modal Info 1`] = `
           </h4>
           <div
             className="c6"
+            data-test="closeOverlayButton"
             onClick={[Function]}
           >
             <svg
@@ -847,6 +853,7 @@ exports[`Storyshots @components/organisms/Modal Modal Info 1`] = `
           <button
             className="c9"
             color="primary"
+            data-test="submitTestModalButton"
             disabled={false}
             form="modal-submit"
             onClick={[Function]}

@@ -6,7 +6,7 @@ exports[`Storyshots @components/molecules/TextField default 1`] = `
   margin: 20px;
 }
 
-.c6 {
+.c7 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -15,41 +15,6 @@ exports[`Storyshots @components/molecules/TextField default 1`] = `
   left: 0;
   pointer-events: none;
   box-sizing: border-box;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #323232;
-  color: #323232;
-  outline: none;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.c2:hover {
-  color: #21125e;
-  outline-width: 1px;
-  outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
-}
-
-.c3 {
-  position: relative;
-  width: 100%;
-}
-
-.c4 {
-  padding: 0.8rem 1rem;
-  margin: 0;
-  border: none;
-  width: 100%;
-  font-size: 1rem;
-  outline: none;
-  background-color: transparent;
 }
 
 .c5 {
@@ -67,8 +32,57 @@ exports[`Storyshots @components/molecules/TextField default 1`] = `
   pointer-events: none;
 }
 
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #323232;
+  color: #323232;
+  outline: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.c2:hover {
+  color: rgb(33,18,94);
+  outline-width: 1px;
+  outline-style: solid;
+  border-color: rgb(33,18,94);
+  outline-color: rgb(33,18,94);
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+}
+
+.c4 {
+  padding: 0.8rem 1rem;
+  margin: 0;
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+  background-color: transparent;
+}
+
+.c4:-webkit-autofill + label {
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+}
+
 .c1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.875rem;
+  position: relative;
+}
+
+.c6 {
+  position: absolute;
+  top: 100%;
 }
 
 <div
@@ -99,9 +113,12 @@ exports[`Storyshots @components/molecules/TextField default 1`] = `
         </label>
       </div>
     </div>
+    <div
+      className="c6"
+    />
   </div>
   <div
-    className="c6"
+    className="c7"
   />
 </div>
 `;
@@ -112,7 +129,7 @@ exports[`Storyshots @components/molecules/TextField with content left 1`] = `
   margin: 20px;
 }
 
-.c7 {
+.c8 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -121,6 +138,21 @@ exports[`Storyshots @components/molecules/TextField with content left 1`] = `
   left: 0;
   pointer-events: none;
   box-sizing: border-box;
+}
+
+.c6 {
+  position: absolute;
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
 }
 
 .c2 {
@@ -136,11 +168,11 @@ exports[`Storyshots @components/molecules/TextField with content left 1`] = `
 }
 
 .c2:hover {
-  color: #21125e;
+  color: rgb(33,18,94);
   outline-width: 1px;
   outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
+  border-color: rgb(33,18,94);
+  outline-color: rgb(33,18,94);
 }
 
 .c3 {
@@ -169,23 +201,22 @@ exports[`Storyshots @components/molecules/TextField with content left 1`] = `
   background-color: transparent;
 }
 
-.c6 {
-  position: absolute;
+.c5:-webkit-autofill + label {
   left: 0.5rem;
   padding: 0 0.5rem;
   background-color: transparent;
   font-size: 0.75rem;
   top: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
 }
 
 .c1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.875rem;
+  position: relative;
+}
+
+.c7 {
+  position: absolute;
+  top: 100%;
 }
 
 <div
@@ -223,9 +254,12 @@ exports[`Storyshots @components/molecules/TextField with content left 1`] = `
         </label>
       </div>
     </div>
+    <div
+      className="c7"
+    />
   </div>
   <div
-    className="c7"
+    className="c8"
   />
 </div>
 `;
@@ -236,7 +270,7 @@ exports[`Storyshots @components/molecules/TextField with content right 1`] = `
   margin: 20px;
 }
 
-.c7 {
+.c8 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -245,6 +279,21 @@ exports[`Storyshots @components/molecules/TextField with content right 1`] = `
   left: 0;
   pointer-events: none;
   box-sizing: border-box;
+}
+
+.c5 {
+  position: absolute;
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
 }
 
 .c2 {
@@ -260,11 +309,11 @@ exports[`Storyshots @components/molecules/TextField with content right 1`] = `
 }
 
 .c2:hover {
-  color: #21125e;
+  color: rgb(33,18,94);
   outline-width: 1px;
   outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
+  border-color: rgb(33,18,94);
+  outline-color: rgb(33,18,94);
 }
 
 .c6 {
@@ -293,23 +342,22 @@ exports[`Storyshots @components/molecules/TextField with content right 1`] = `
   background-color: transparent;
 }
 
-.c5 {
-  position: absolute;
+.c4:-webkit-autofill + label {
   left: 0.5rem;
   padding: 0 0.5rem;
   background-color: transparent;
   font-size: 0.75rem;
   top: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
 }
 
 .c1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.875rem;
+  position: relative;
+}
+
+.c7 {
+  position: absolute;
+  top: 100%;
 }
 
 <div
@@ -347,9 +395,12 @@ exports[`Storyshots @components/molecules/TextField with content right 1`] = `
         </span>
       </span>
     </div>
+    <div
+      className="c7"
+    />
   </div>
   <div
-    className="c7"
+    className="c8"
   />
 </div>
 `;
@@ -360,7 +411,7 @@ exports[`Storyshots @components/molecules/TextField with errors 1`] = `
   margin: 20px;
 }
 
-.c8 {
+.c9 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -371,13 +422,28 @@ exports[`Storyshots @components/molecules/TextField with errors 1`] = `
   box-sizing: border-box;
 }
 
-.c6 {
+.c7 {
   color: #c22d74;
   font-size: 0.75rem;
 }
 
-.c7 {
+.c8 {
   margin: 0;
+}
+
+.c5 {
+  position: absolute;
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
 }
 
 .c2 {
@@ -415,23 +481,22 @@ exports[`Storyshots @components/molecules/TextField with errors 1`] = `
   background-color: transparent;
 }
 
-.c5 {
-  position: absolute;
+.c4:-webkit-autofill + label {
   left: 0.5rem;
   padding: 0 0.5rem;
   background-color: transparent;
   font-size: 0.75rem;
   top: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
 }
 
 .c1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.875rem;
+  position: relative;
+}
+
+.c6 {
+  position: absolute;
+  top: 100%;
 }
 
 <div
@@ -465,121 +530,21 @@ exports[`Storyshots @components/molecules/TextField with errors 1`] = `
     <div
       className="c6"
     >
-      <p
-        className="c7"
-      >
-        Some error
-      </p>
-    </div>
-  </div>
-  <div
-    className="c8"
-  />
-</div>
-`;
-
-exports[`Storyshots @components/molecules/TextField with required set to true 1`] = `
-.c0 {
-  position: relative;
-  margin: 20px;
-}
-
-.c6 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid rgba(0,0,0,0.2);
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  box-sizing: border-box;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid #323232;
-  color: #323232;
-  outline: none;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.c2:hover {
-  color: #21125e;
-  outline-width: 1px;
-  outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
-}
-
-.c3 {
-  position: relative;
-  width: 100%;
-}
-
-.c4 {
-  padding: 0.8rem 1rem;
-  margin: 0;
-  border: none;
-  width: 100%;
-  font-size: 1rem;
-  outline: none;
-  background-color: transparent;
-}
-
-.c5 {
-  position: absolute;
-  left: 1rem;
-  padding: 0 0rem;
-  background-color: transparent;
-  font-size: 1rem;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
-}
-
-.c1 {
-  margin-bottom: 1rem;
-}
-
-<div
-  className="c0"
->
-  <div
-    className="c1"
-  >
-    <div
-      className="c2"
-      disabled={false}
-    >
       <div
-        className="c3"
+        className="c7"
+        data-test="errorMessage"
       >
-        <input
-          className="c4"
-          disabled={false}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          value=""
-        />
-        <label
-          className="c5"
+        <p
+          className="c8"
+          data-test-id={0}
         >
-          Label
-        </label>
+          Some error
+        </p>
       </div>
     </div>
   </div>
   <div
-    className="c6"
+    className="c9"
   />
 </div>
 `;

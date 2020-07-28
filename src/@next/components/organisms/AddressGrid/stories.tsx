@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import React from "react";
+import { IntlProvider } from "react-intl";
 
 import { AddressGrid } from ".";
 
@@ -12,7 +13,7 @@ const DEFAULT_PROPS = {
   address: {
     city: "Wroclaw",
     companyName: "Mirumee",
-    country: "Poland",
+    country: { code: "PL", country: "Poland" },
     countryArea: "dolnyslask",
     firstName: "John",
     isDefaultBillingAddress: false,
@@ -33,7 +34,10 @@ const addressSimple = {
   address: {
     city: "Wroclaw",
     companyName: "Mirumee",
-    country: "",
+    country: {
+      code: "",
+      country: "",
+    },
     countryArea: "",
     firstName: "John",
     isDefaultBillingAddress: false,
@@ -52,6 +56,13 @@ const addressSimple = {
 
 const addresses = [DEFAULT_PROPS, addressSimple, DEFAULT_PROPS, DEFAULT_PROPS];
 
-storiesOf("@components/organisms/AddressGrid", module).add("default", () => (
-  <AddressGrid addresses={addresses} />
-));
+storiesOf("@components/organisms/AddressGrid", module)
+  .addParameters({ component: AddressGrid })
+  .add("default", () => (
+    <IntlProvider locale="en">
+      <AddressGrid
+        addNewAddress={action("addNewAddress")}
+        addresses={addresses}
+      />
+    </IntlProvider>
+  ));

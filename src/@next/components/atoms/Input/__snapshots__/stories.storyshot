@@ -17,6 +17,21 @@ exports[`Storyshots @components/atoms/Input default 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  position: absolute;
+  left: 1rem;
+  padding: 0 0rem;
+  background-color: transparent;
+  font-size: 1rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -30,11 +45,11 @@ exports[`Storyshots @components/atoms/Input default 1`] = `
 }
 
 .c1:hover {
-  color: #21125e;
+  color: rgb(33,18,94);
   outline-width: 1px;
   outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
+  border-color: rgb(33,18,94);
+  outline-color: rgb(33,18,94);
 }
 
 .c2 {
@@ -52,19 +67,12 @@ exports[`Storyshots @components/atoms/Input default 1`] = `
   background-color: transparent;
 }
 
-.c4 {
-  position: absolute;
-  left: 1rem;
-  padding: 0 0rem;
+.c3:-webkit-autofill + label {
+  left: 0.5rem;
+  padding: 0 0.5rem;
   background-color: transparent;
-  font-size: 1rem;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
+  font-size: 0.75rem;
+  top: 0;
 }
 
 <div
@@ -114,6 +122,21 @@ exports[`Storyshots @components/atoms/Input disabled 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  position: absolute;
+  left: 1rem;
+  padding: 0 0rem;
+  background-color: transparent;
+  font-size: 1rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -149,19 +172,12 @@ exports[`Storyshots @components/atoms/Input disabled 1`] = `
   background-color: transparent;
 }
 
-.c4 {
-  position: absolute;
-  left: 1rem;
-  padding: 0 0rem;
+.c3:-webkit-autofill + label {
+  left: 0.5rem;
+  padding: 0 0.5rem;
   background-color: transparent;
-  font-size: 1rem;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
+  font-size: 0.75rem;
+  top: 0;
 }
 
 <div
@@ -211,6 +227,21 @@ exports[`Storyshots @components/atoms/Input error 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  position: absolute;
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -246,19 +277,12 @@ exports[`Storyshots @components/atoms/Input error 1`] = `
   background-color: transparent;
 }
 
-.c4 {
-  position: absolute;
+.c3:-webkit-autofill + label {
   left: 0.5rem;
   padding: 0 0.5rem;
   background-color: transparent;
   font-size: 0.75rem;
   top: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
 }
 
 <div
@@ -308,6 +332,21 @@ exports[`Storyshots @components/atoms/Input with value 1`] = `
   box-sizing: border-box;
 }
 
+.c4 {
+  position: absolute;
+  left: 0.5rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  top: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease,color 0s;
+  transition: all 0.3s ease,color 0s;
+  pointer-events: none;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -321,11 +360,11 @@ exports[`Storyshots @components/atoms/Input with value 1`] = `
 }
 
 .c1:hover {
-  color: #21125e;
+  color: rgb(33,18,94);
   outline-width: 1px;
   outline-style: solid;
-  border-color: #21125e;
-  outline-color: #21125e;
+  border-color: rgb(33,18,94);
+  outline-color: rgb(33,18,94);
 }
 
 .c5 {
@@ -354,19 +393,12 @@ exports[`Storyshots @components/atoms/Input with value 1`] = `
   background-color: transparent;
 }
 
-.c4 {
-  position: absolute;
+.c3:-webkit-autofill + label {
   left: 0.5rem;
   padding: 0 0.5rem;
   background-color: transparent;
   font-size: 0.75rem;
   top: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease,color 0s;
-  transition: all 0.3s ease,color 0s;
-  pointer-events: none;
 }
 
 <div

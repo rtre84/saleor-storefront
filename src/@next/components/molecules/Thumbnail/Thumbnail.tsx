@@ -2,7 +2,8 @@ import React from "react";
 
 import { maybe } from "@utils/misc";
 
-import { CachedImage } from "../";
+import { PlaceholderImage } from "@components/atoms";
+import { CachedImage } from "..";
 import { IProps } from "./types";
 
 export const Thumbnail: React.FC<IProps> = ({
@@ -10,12 +11,18 @@ export const Thumbnail: React.FC<IProps> = ({
   children,
   ...props
 }: IProps) => {
+  const { thumbnail, thumbnail2x } = source;
+
+  if (!thumbnail && !thumbnail2x) {
+    return <PlaceholderImage />;
+  }
+
   return (
     <CachedImage
       {...props}
-      url={maybe(() => source.thumbnail.url)}
-      url2x={maybe(() => source.thumbnail2x.url)}
-      alt={maybe(() => source.thumbnail.alt, "")}
+      url={maybe(() => thumbnail!.url)}
+      url2x={maybe(() => thumbnail2x!.url)}
+      alt={maybe(() => (thumbnail!.alt ? thumbnail!.alt : ""), "")}
     >
       {children}
     </CachedImage>

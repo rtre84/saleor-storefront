@@ -1,11 +1,14 @@
 import gql from "graphql-tag";
 
 import { TypedQuery } from "../../../core/queries";
-import { SearchResults, SearchResultsVariables } from "./types/SearchResults";
+import {
+  SearchResults,
+  SearchResultsVariables,
+} from "./gqlTypes/SearchResults";
 
 const searchResultsQuery = gql`
   query SearchResults($query: String!) {
-    products(query: $query, first: 20) {
+    products(filter: { search: $query }, first: 20) {
       edges {
         node {
           id
@@ -17,7 +20,6 @@ const searchResultsQuery = gql`
           thumbnail2x: thumbnail(size: 510) {
             url
           }
-          url
           category {
             id
             name
